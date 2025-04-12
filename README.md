@@ -35,7 +35,7 @@ This contains:
 
     -All packages above, fully compiled
 
-    -Preinstalled dev tools (Python, Terminator, etc.)
+    -Preinstalled dev tools (Python, Terminator, nvim, TMUX etc.)
 ---
 
 🚀 Quick Start (Building from Source)
