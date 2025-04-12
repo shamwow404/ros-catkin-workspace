@@ -33,7 +33,7 @@ This contains:
 
     -ROS Noetic
 
-    A-ll packages above, fully compiled
+    -All packages above, fully compiled
 
     -Preinstalled dev tools (Python, Terminator, etc.)
 ---
