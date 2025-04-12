@@ -1,0 +1,8 @@
+prefix=/root/catkin_ws/devel
+
+Name: pepper_simulation
+Description: Description of pepper_simulation
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

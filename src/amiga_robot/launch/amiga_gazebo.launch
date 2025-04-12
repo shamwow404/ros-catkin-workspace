@@ -1,0 +1,23 @@
+<launch>
+  <!-- Load the robot model in Gazebo -->
+  <arg name="robot_model" default="amiga_robot" />
+
+  <!-- Start Gazebo with the specified world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+  </include>
+
+  <!-- Spawn the robot model into Gazebo -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen">
+    <param name="robot_description" command="cat $(find amiga_robot)/urdf/amiga_robot.urdf"/>
+  </node>
+
+  <!-- Optional: If you have a Gazebo robot controller, include it here -->
+  <node name="amiga_controller" pkg="amiga_robot" type="robot_controller" output="screen"/>
+
+  <!-- Optional: If you have a robot driver or other components, include them here -->
+  <!-- <node name="amiga_driver" pkg="amiga_robot" type="robot_driver" output="screen"/> -->
+
+</launch>
+

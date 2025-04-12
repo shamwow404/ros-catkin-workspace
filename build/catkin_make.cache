@@ -1,0 +1,2 @@
+amiga_robot:pepper_meshes:pepper_robot/pepper_bringup:pepper_robot/pepper_description:pepper_robot/pepper_robot:pepper_robot/pepper_sensors_py:pepper_simulation
+-DCATKIN_DEVEL_PREFIX=/root/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/root/catkin_ws/install -G Unix Makefiles
