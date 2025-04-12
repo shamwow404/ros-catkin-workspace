@@ -72,5 +72,40 @@ ros-catkin-workspace/
 
     -Use the GitHub Release file if you want an identical, reproducible environment.
 ---
+---
+🧩 Launching the Container from a Custom Terminal Profile
+
+If you want to open the Docker container in a new terminal tab using a custom terminal profile, use the following command:
+```bash
+bash -c "
+xhost +local:root
+if ! sudo docker ps --format '{{.Names}}' | grep -q '^ubuntu20_container$'; then
+    sudo docker start ubuntu20_container
+fi
+sudo docker exec -it ubuntu20_container bash -c '
+    export DISPLAY=\$DISPLAY
+    export XAUTHORITY=/root/.Xauthority
+    export QT_X11_NO_MITSHM=1
+    echo \"Inside container: DISPLAY=\$DISPLAY\"
+    bash'
+"
+```
+
+✅ What this does:
+
+    🔓 Grants the container access to your X display (xhost +local:root)
+
+    🏁 Starts the container if it's not running
+
+    🔁 Attaches to the container via docker exec
+
+    🖥️ Exports necessary GUI display variables (DISPLAY, XAUTHORITY, etc.)
+
+    🧼 Keeps the new terminal session clean with a Bash shell ready to go
+
+💡 Pro Tip:
+
+You can create a custom profile in your terminal emulator (e.g. GNOME Terminal or Terminator) and set this as the command to run when that profile is opened — making it a 1-click dev environment launcher.
+---
 ✨ Author:
 Made with 💖 by Sham
